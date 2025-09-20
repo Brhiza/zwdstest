@@ -7351,15 +7351,8 @@ body {
 /* 分隔线样式 */
 .markdown-content .markdown-hr {
   border: none;
-  border-top: 1px solid var(--gray-200);
+  border-top: 2px solid var(--gray-300);
   margin: 2em 0;
-  /* 确保分割线不会换行 */
-  width: 100%;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  /* 使用更淡的颜色 */
-  opacity: 0.5;
 }
 
 /* 链接样式 */
@@ -7698,20 +7691,38 @@ body {
 }
 
 @media (max-width: 768px) {
-  .markdown-content .markdown-table {
-    display: block;
+  .markdown-content .markdown-table-wrapper {
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto;
-    white-space: nowrap;
-    max-width: 100%; /* 确保表格不会超出容器宽度 */
+    -webkit-overflow-scrolling: touch;
+    border-radius: 6px;
+    border: 1px solid var(--gray-300);
+  }
+  
+  .markdown-content .markdown-table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto; /* 改为auto让表格自动调整宽度 */
+    border-collapse: collapse;
+    box-sizing: border-box;
   }
   
   .markdown-content .markdown-th,
   .markdown-content .markdown-td {
-    padding: 0.3em 0.5em;
-    max-width: 100px; /* 限制单元格最大宽度 */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0.4em 0.6em;
     white-space: normal; /* 允许文本换行 */
+    word-wrap: break-word; /* 允许长单词换行 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 文本溢出时显示省略号 */
+    max-width: 200px; /* 限制单元格最大宽度，防止过宽 */
+    box-sizing: border-box;
+  }
+  
+  /* 对于特别宽的表格，允许水平滚动 */
+  .markdown-content .markdown-table-wrapper .markdown-table {
+    min-width: auto; /* 移除最小宽度限制 */
   }
 }
 
@@ -10501,5 +10512,5 @@ button.rechart-button {
   }
 }
 
-/*# sourceMappingURL=main.25c43f215843009e39e3.css.map */
-/*# sourceMappingURL=main.25c43f215843009e39e3.css.map*/
+/*# sourceMappingURL=main.099edcf0356617644a8c.css.map */
+/*# sourceMappingURL=main.099edcf0356617644a8c.css.map*/
