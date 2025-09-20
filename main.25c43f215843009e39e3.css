@@ -7351,8 +7351,15 @@ body {
 /* 分隔线样式 */
 .markdown-content .markdown-hr {
   border: none;
-  border-top: 2px solid var(--gray-300);
+  border-top: 1px solid var(--gray-200);
   margin: 2em 0;
+  /* 确保分割线不会换行 */
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  /* 使用更淡的颜色 */
+  opacity: 0.5;
 }
 
 /* 链接样式 */
@@ -7668,15 +7675,6 @@ body {
   color: var(--gray-900);
 }
 
-/* 分割线样式优化 */
-.markdown-content .markdown-hr {
-  height: 1px;
-  padding: 0;
-  margin: 1em 0;
-  background-color: var(--gray-300);
-  border: 0;
-  opacity: 0.8;
-}
 
 /* 新增：图片样式 */
 .markdown-content .markdown-img {
@@ -7759,6 +7757,7 @@ body {
 .markdown-img.loaded {
   opacity: 1;
 }
+
 /* 聊天问题面板样式 */
 
 .question-panel {
@@ -10502,5 +10501,5 @@ button.rechart-button {
   }
 }
 
-/*# sourceMappingURL=main.cd783e2600275f9f0261.css.map */
-/*# sourceMappingURL=main.cd783e2600275f9f0261.css.map*/
+/*# sourceMappingURL=main.25c43f215843009e39e3.css.map */
+/*# sourceMappingURL=main.25c43f215843009e39e3.css.map*/
