@@ -9352,22 +9352,27 @@ button.rechart-button {
 
 .tab-navigation {
   display: flex;
-  justify-content: center; /* Center the main content */
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
-  position: relative; /* Context for absolute positioning */
   width: 100%;
 }
 
+.tab-navigation-center {
+  /* This will be centered by the space-between on the parent */
+}
 
-.tab-navigation-actions {
-  position: absolute; /* Position it relative to the parent */
-  right: 10px; /* Align to the right edge */
-  top: 50%;
-  transform: translateY(-50%);
+.tab-navigation-actions,
+.tab-navigation-spacer {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 60px; /* Ensure both sides have a minimum width to balance */
+  justify-content: flex-end; /* Align actions to the right */
+}
+
+.tab-navigation-spacer {
+  justify-content: flex-start; /* Align spacer to the left */
 }
 
 .new-chat-button {
@@ -9381,11 +9386,12 @@ button.rechart-button {
   justify-content: center;
   color: var(--text-color-secondary); /* Use a subtle color */
   transition: color 0.2s ease;
+  box-shadow: none; /* Explicitly remove shadow */
 }
 
 .new-chat-button:hover {
   color: var(--primary-color); /* Highlight with primary color on hover */
-  background: none;
+  background: none; /* Ensure no background on hover */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10110,6 +10116,8 @@ button.rechart-button {
   padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
   background-color: var(--background-color);
   position: relative;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .history-title {
@@ -10119,7 +10127,7 @@ button.rechart-button {
   cursor: pointer;
   user-select: none;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
 }
 
 .history-password-container {
@@ -10607,7 +10615,6 @@ button.rechart-button {
   flex: 1;
   min-width: 0;
   display: flex;
-  flex-direction: column;
   gap: var(--spacing-xs, 4px);
 }
 
@@ -10802,5 +10809,5 @@ button.rechart-button {
 }
 
 
-/*# sourceMappingURL=main.8bff7270d5897881fb86.css.map */
-/*# sourceMappingURL=main.8bff7270d5897881fb86.css.map*/
+/*# sourceMappingURL=main.892a4bb41497e7e92ffa.css.map */
+/*# sourceMappingURL=main.892a4bb41497e7e92ffa.css.map*/
