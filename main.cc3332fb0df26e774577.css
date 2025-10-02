@@ -188,9 +188,35 @@
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -232,77 +258,23 @@
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -376,6 +348,7 @@
     transform: translateY(-5px);
   }
 }
+
 /* 基础混合器文件 */
 @media (max-width: 768px) {
   
@@ -2308,9 +2281,35 @@ body {
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -2352,77 +2351,23 @@ body {
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -2496,6 +2441,7 @@ body {
     transform: translateY(-5px);
   }
 }
+
 /*
  * 聊天组件 CSS 变量定义
  * 使用 CSS 变量实现主题切换和响应式布局
@@ -2702,9 +2648,35 @@ body {
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -2746,77 +2718,23 @@ body {
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -2890,6 +2808,7 @@ body {
     transform: translateY(-5px);
   }
 }
+
 /*
  * 聊天组件 CSS 变量定义
  * 使用 CSS 变量实现主题切换和响应式布局
@@ -3443,9 +3362,35 @@ body {
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -3487,77 +3432,23 @@ body {
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -3631,6 +3522,7 @@ body {
     transform: translateY(-5px);
   }
 }
+
 /*
  * 聊天组件 CSS 变量定义
  * 使用 CSS 变量实现主题切换和响应式布局
@@ -4616,9 +4508,35 @@ body {
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -4660,77 +4578,23 @@ body {
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -4804,6 +4668,7 @@ body {
     transform: translateY(-5px);
   }
 }
+
 /*
  * 聊天组件 CSS 变量定义
  * 使用 CSS 变量实现主题切换和响应式布局
@@ -5332,9 +5197,35 @@ body {
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -5376,77 +5267,23 @@ body {
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -5520,6 +5357,7 @@ body {
     transform: translateY(-5px);
   }
 }
+
 /*
  * 聊天组件 CSS 变量定义
  * 使用 CSS 变量实现主题切换和响应式布局
@@ -6140,9 +5978,35 @@ body {
 /* 暗色模式变量 */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 暗色模式颜色变量 */
-    --primary-color: #7B55EF;
-    --primary-hover: #6344d3;
+    /* 文本颜色 */
+    --color-text-primary: #efefef; /* 主要文本，接近白色 */
+    --color-text-secondary: #9c9d9d; /* 次要文本、占位符 */
+    --color-text-muted: #9c9d9d; /* 提示性文本 */
+    --color-text-inverse: #1d1d1d; /* 反色文本，用于亮色背景 */
+
+    /* 背景颜色 */
+    --color-background: #1d1d1d; /* 主背景色 */
+    --color-background-soft: #262628; /* 悬停或柔和背景 */
+    --color-background-secondary: #1d1d1d; /* 组件、输入框等次级背景 */
+    --color-background-muted: #1d1d1d; /* 禁用或更深的背景 */
+    --color-background-elevated: #1d1d1d; /* 浮动面板、模态框背景 */
+
+    /* 边框颜色 */
+    --color-border: #2c2c2f; /* 默认边框 */
+    --color-border-light: #2c2c2f; /* 亮边框 */
+    --color-border-dark: #2c2c2f; /* 暗边框 */
+
+    /* 侧边栏颜色 */
+    --color-sidebar-background: #1d1d1d; /* 与主背景统一 */
+
+    /* 品牌色 */
+    --color-primary: #6b46c1; /* 紫色强调色 */
+    --color-primary-light: #8c78f2; /* 亮紫色 */
+    --color-primary-dark: #8A6DFF; /* 暗紫色 */
+
+    /* 兼容旧版变量 */
+    --primary-color: var(--color-primary);
+    --primary-hover: var(--color-primary-light);
     --secondary-color: #adb5bd;
     --success-color: #51cf66;
     --danger-color: #ff6b6b;
@@ -6184,77 +6048,23 @@ body {
     --iztro-color-hourly: var(--iztro-color-text);
     
     /* 暗色模式聊天特定颜色 */
-    --background-color: #1B1B1B;
-    --message-bg: #343a40;
-    --text-color: #ffffff;
-    --text-secondary: #ced4da;
-    --input-bg: #343a40;
-    --input-border: #495057;
-    --border-color: #495057;
+    --background-color: var(--color-background);
+    --message-bg: var(--color-background-soft);
+    --text-color: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --input-bg: var(--color-background-secondary);
+    --input-border: var(--color-border);
+    --border-color: var(--color-border);
     --quick-action-bg: #343a40;
     --quick-action-border: #495057;
     --quick-action-hover-bg: #495057;
     --question-panel-bg: #2d2d2d;
     --typing-indicator-color: #ced4da;
-    
-    /* 暗色模式间距变量 */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    
-    /* 暗色模式字体大小变量 */
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 24px;
-    
-    /* 暗色模式聊天字体大小 */
-    --chat-font-size: 14px;
-    
-    /* 暗色模式星盘字体大小 */
-    --iztro-star-font-size-big: 13px;
-    --iztro-star-font-size-small: 12px;
-    
-    /* 暗色模式边框半径变量 */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-full: 50%;
-    
-    /* 暗色模式阴影变量 */
-    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式聊天阴影变量 */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.3);
-    
-    /* 暗色模式断点变量 */
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    
-    /* 暗色模式过渡变量 */
-    --transition-fast: 0.15s;
-    --transition-normal: 0.3s;
-    --transition-slow: 0.5s;
-    
-    /* 暗色模式 Z-index变量 */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-primary);
   }
   
   /* 暗色模式移动端特定变量 */
@@ -6328,6 +6138,7 @@ body {
     transform: translateY(-5px);
   }
 }
+
 /*
  * 聊天组件 CSS 变量定义
  * 使用 CSS 变量实现主题切换和响应式布局
@@ -6588,6 +6399,13 @@ body {
   .quick-action-button:disabled {
     background-color: var(--input-bg);
     color: var(--text-secondary);
+  }
+
+  /* 暗色模式快捷操作按钮悬停样式覆盖 */
+  .quick-action-button:hover:not(:disabled),
+  .regenerate-button.quick-action-button:hover:not(:disabled) {
+    border-color: var(--primary-hover);
+    color: var(--text-color);
   }
   
   .category-heading {
@@ -8004,7 +7822,7 @@ body {
 .quick-actions {
   display: flex;
   gap: var(--spacing-sm);
-  overflow-x: auto;
+  overflow: visible;
   align-items: center;
 }
 
@@ -8013,6 +7831,7 @@ body {
   .quick-actions {
     gap: 6px;
     padding-bottom: 4px;
+    overflow: visible;
   }
 }
 
@@ -8085,14 +7904,14 @@ body {
     /* 确保在键盘弹出时不会被遮挡 */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   .quick-actions {
     gap: 6px;
     padding-bottom: 4px;
-    /* 确保快捷操作按钮可以滚动 */
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
     /* 防止按钮在虚拟键盘弹出时变形 */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
@@ -8123,6 +7942,10 @@ body {
     /* 添加阴影，增强视觉层次 */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   }
+}
+
+body.model-selector-open .quick-actions-container {
+  overflow: visible;
 }
 
 /*
@@ -9107,8 +8930,6 @@ body {
     padding: 16px;
     font-size: 16px;
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    background-color: #f9f9f9;
     /* 触摸区域优化 */
     min-height: 44px;
     /* 防止iOS缩放 */
@@ -9122,7 +8943,6 @@ body {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 3px rgba(123,85,239,0.2);
-    background-color: #fff;
   }
   
   /* 优化选择框在移动端的显示 */
@@ -9356,10 +9176,6 @@ button.rechart-button {
   justify-content: space-between;
   margin-bottom: 20px;
   width: 100%;
-}
-
-.tab-navigation-center {
-  /* This will be centered by the space-between on the parent */
 }
 
 .tab-navigation-actions,
@@ -10567,247 +10383,5 @@ button.rechart-button {
     -webkit-touch-callout: none;
   }
 }
-.history-panel {
-  height: 100%;
-  background-color: var(--background-color, #fff);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
 
-.history-panel .history-list {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: var(--spacing-lg, 16px);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md, 12px);
-  list-style: none;
-  margin: 0;
-}
-
-.history-panel .history-item {
-  border: 1px solid var(--border-color, #e0e0e0);
-  border-radius: var(--border-radius-md, 8px);
-  overflow: hidden;
-  transition: all var(--transition-normal, 0.2s) ease;
-  background-color: var(--background-color-primary, #fff);
-  box-shadow: var(--box-shadow-sm, 0 1px 3px rgba(0,0,0,0.05));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-sm, 8px) var(--spacing-md, 12px);
-  cursor: pointer;
-}
-
-.history-panel .history-item:hover {
-  box-shadow: var(--box-shadow-md, 0 4px 8px rgba(0,0,0,0.08));
-  border-color: var(--primary-color, #7B55EF);
-  transform: translateY(-1px);
-}
-
-.history-panel .history-item.active {
-  border-color: var(--primary-color, #7B55EF);
-  box-shadow: 0 0 0 2px var(--primary-color-translucent, rgba(123, 85, 239, 0.2));
-}
-
-.history-panel .history-item-content {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  gap: var(--spacing-xs, 4px);
-}
-
-.history-panel .history-item-title {
-  font-weight: 600;
-  color: var(--text-color, #212529);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: var(--font-size-md, 16px);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.history-panel .history-item-date {
-  color: var(--text-secondary, #6c757d);
-  font-size: var(--font-size-sm, 12px);
-  font-weight: 400;
-  opacity: 0.8;
-}
-
-.history-panel .history-item-delete {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--spacing-sm, 8px);
-  border-radius: 50%;
-  transition: all var(--transition-normal, 0.2s) ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  color: var(--text-secondary, #6c757d);
-  margin-left: var(--spacing-md, 12px);
-  flex-shrink: 0;
-}
-
-.history-panel .history-item-delete:hover {
-  background-color: var(--gray-200, #f1f3f5);
-  color: var(--danger-color, #e03131);
-}
-
-.history-action-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--spacing-sm, 8px);
-  border-radius: 50%;
-  transition: all var(--transition-normal, 0.2s) ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  color: var(--text-secondary, #6c757d);
-}
-
-.history-action-button:hover {
-  background-color: var(--gray-200, #f1f3f5);
-}
-
-.history-edit-icon:hover {
-  color: var(--primary-color, #7B55EF);
-}
-
-.history-item-title-input {
-  width: 100%;
-  padding: 4px 8px;
-  font-size: var(--font-size-md, 16px);
-  font-weight: 600;
-  color: var(--text-color, #212529);
-  background-color: var(--gray-100, #f8f9fa);
-  border: 1px solid var(--primary-color, #7B55EF);
-  border-radius: var(--border-radius-sm, 4px);
-  outline: none;
-  box-sizing: border-box;
-}
-
-.history-panel.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  color: var(--text-secondary);
-}
-
-.history-panel.empty-state p {
-  font-size: var(--font-size-lg);
-  font-weight: 500;
-  margin: 0 0 8px 0;
-}
-
-.history-panel.empty-state span {
-  font-size: var(--font-size-md);
-}
-
-.history-panel-footer {
-  padding: var(--spacing-md, 16px);
-  border-top: 1px solid var(--border-color, #e0e0e0);
-  background-color: var(--background-color, #fff);
-}
-
-.history-clear-button {
-  width: 100%;
-  padding: var(--spacing-md, 16px);
-  background-color: var(--danger-color, #dc3545);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius-md, 8px);
-  cursor: pointer;
-  font-size: var(--font-size-md, 16px);
-  font-weight: 600;
-  transition: all var(--transition-normal, 0.2s) ease;
-  box-shadow: var(--box-shadow-sm, 0 1px 3px rgba(0,0,0,0.05));
-}
-
-.history-clear-button:hover {
-  background-color: #c82333;
-  transform: translateY(-1px);
-  box-shadow: var(--box-shadow-md, 0 4px 8px rgba(0,0,0,0.08));
-}
-
-/* 暗色模式样式 */
-@media (prefers-color-scheme: dark) {
-  .history-panel {
-    background-color: var(--background-color, #121212);
-  }
-
-  .history-panel .history-item {
-    background-color: var(--background-color-primary, #1e1e1e);
-    border-color: var(--border-color, #333);
-    box-shadow: none;
-  }
-
-  .history-panel .history-item:hover {
-    background-color: var(--gray-800, #2a2a2a);
-    border-color: var(--primary-color, #7B55EF);
-  }
-
-  .history-panel .history-item.active {
-    border-color: var(--primary-color, #7B55EF);
-    background-color: var(--primary-color-translucent, rgba(123, 85, 239, 0.1));
-    box-shadow: 0 0 0 2px var(--primary-color-translucent, rgba(123, 85, 239, 0.2));
-  }
-
-  .history-panel .history-item-title {
-    color: var(--text-color, #e0e0e0);
-  }
-
-  .history-panel .history-item-date {
-    color: var(--text-secondary, #888);
-  }
-
-  .history-panel .history-item-delete {
-    color: var(--text-secondary, #888);
-  }
-
-  .history-panel .history-item-delete:hover {
-    background-color: var(--gray-700, #333);
-    color: var(--danger-color, #e03131);
-  }
-
-  .history-action-button:hover {
-    background-color: var(--gray-700, #333);
-  }
-
-  .history-item-title-input {
-    background-color: var(--gray-800, #2a2a2a);
-    border-color: var(--primary-color, #7B55EF);
-    color: var(--text-color, #e0e0e0);
-  }
-
-  .history-panel.empty-state {
-    color: var(--text-secondary, #888);
-  }
-
-  .history-panel-footer {
-    border-top-color: var(--border-color, #333);
-    background-color: var(--background-color, #121212);
-  }
-
-  .history-clear-button {
-    background-color: var(--danger-color, #e03131);
-  }
-
-  .history-clear-button:hover {
-    background-color: #c92a2a;
-  }
-}
-
-
-/*# sourceMappingURL=main.892a4bb41497e7e92ffa.css.map */
-/*# sourceMappingURL=main.892a4bb41497e7e92ffa.css.map*/
+/*# sourceMappingURL=main.cc3332fb0df26e774577.css.map */
