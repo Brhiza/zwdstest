@@ -400,6 +400,29 @@
  */
 
 /* 布局工具类 */
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
 
 /* 网格布局工具类 */
 .grid {
@@ -409,10 +432,15 @@
 /* 间距工具类 */
 
 /* 文本工具类 */
+.text-wrap { white-space: normal; }
 
 /* 颜色工具类 */
 
 /* 边框工具类 */
+.border { border: 1px solid var(--gray-300); }
+.border-top { border-top: 1px solid var(--gray-300); }
+.border-bottom { border-bottom: 1px solid var(--gray-300); }
+.border-left { border-left: 1px solid var(--gray-300); }
 
 /* 显示工具类 - 简化重复代码 */
 
@@ -756,13 +784,28 @@
 
 /* 基础Flexbox容器 */
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 /* 对齐方式 */
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
 
 /* 交叉轴对齐 */
 
 /* 多行对齐 */
 
 /* 项目属性 */
+
+.flex-shrink {
+  flex-shrink: 1;
+}
 
 /* 应用特定Flexbox布局 */
 
@@ -3547,6 +3590,15 @@ body {
 /* 导入变量 */
 
 /* 消息容器 Flexbox 布局 */
+.assistant-message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-message .assistant-message-wrapper {
+  align-items: flex-end;
+}
 
 /* 重新生成按钮容器 Flexbox 布局 */
 .regenerate-container {
@@ -3625,6 +3677,11 @@ body {
   line-height: 1;
   fill: #ffffff;
   stroke: #ffffff;
+}
+
+.chat-action-button-text {
+  color: #ffffff;
+  font-weight: bold;
 }
 
 /* 强制设置按钮内所有文本为白色 */
@@ -3860,6 +3917,11 @@ body {
     color: #ffffff;
   }
   
+  .chat-action-button-text {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
   /* 强制设置按钮内所有文本为白色 */
   .chat-action-button > *,
   .chat-action-button > span {
@@ -3954,6 +4016,11 @@ body {
       fill: #ffffff;
       stroke: #ffffff;
       color: #ffffff;
+    }
+    
+    .chat-action-button-text {
+      color: #ffffff;
+      font-weight: bold;
     }
     
     .chat-action-button:hover:not(:disabled) {
@@ -5572,6 +5639,11 @@ body {
     color: #ffffff;
   }
   
+  .chat-action-button-text {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
   /* 移动端表格样式优化 */
   .markdown-content .markdown-table {
     display: block;
@@ -5759,6 +5831,11 @@ body {
     fill: #ffffff;
     stroke: #ffffff;
     color: #ffffff;
+  }
+  
+  .chat-action-button-text {
+    color: #ffffff;
+    font-weight: bold;
   }
   
   /* 强制设置按钮内所有文本为白色 */
@@ -6205,6 +6282,7 @@ body {
 
 .chat-action-button svg,
 .chat-send-icon,
+.chat-action-button-text,
 .chat-action-button > *,
 .chat-action-button > span {
   fill: #ffffff;
@@ -6548,6 +6626,13 @@ body {
   background: rgba(0, 0, 0, 0.3);
 }
 
+.welcome-message {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-lg);
+  font-style: italic;
+}
+
 .message {
   margin-bottom: var(--spacing-md);
   display: flex;
@@ -6717,6 +6802,10 @@ body {
     border-top-color: var(--border-color);
   }
   
+  .welcome-message {
+    color: var(--text-secondary);
+  }
+  
   .assistant-message .message-content {
     background-color: var(--message-bg);
     color: var(--text-color);
@@ -6774,6 +6863,11 @@ body {
 }
 
 /* 重新生成按钮样式 - 参考quick-action-button */
+.assistant-message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .regenerate-container {
   display: flex;
@@ -7850,7 +7944,6 @@ body {
 /* Quick Action Button - 独立样式，不继承通用按钮样式 */
 .quick-action-button {
   /* 重置所有可能的按钮继承样式 */
-  all: initial;
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-sm);
   background-color: var(--gray-100);
@@ -7871,7 +7964,6 @@ body {
   min-width: fit-content;
   max-width: none;
   margin: 0;
-  overflow: visible;
   /* 禁用移动端点击时的蓝色高亮 */
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
@@ -8480,6 +8572,26 @@ body.model-selector-open .quick-actions-container {
     min-height: 15px;
     font-size: var(--iztro-star-font-size-small);
   }
+}
+
+.iztro-palace-fate .iztro-palace-decadal-active {
+  background-color: var(--iztro-color-decadal);
+}
+
+.iztro-palace-fate .iztro-palace-yearly-active {
+  background-color: var(--iztro-color-yearly);
+}
+
+.iztro-palace-fate .iztro-palace-monthly-active {
+  background-color: var(--iztro-color-monthly);
+}
+
+.iztro-palace-fate .iztro-palace-daily-active {
+  background-color: var(--iztro-color-daily);
+}
+
+.iztro-palace-fate .iztro-palace-hourly-active {
+  background-color: var(--iztro-color-hourly);
 }
 
 .iztro-palace-footer {
@@ -10384,5 +10496,5 @@ button.rechart-button {
   }
 }
 
-/*# sourceMappingURL=main.21c28c2312bbfad35237.css.map */
-/*# sourceMappingURL=main.21c28c2312bbfad35237.css.map*/
+/*# sourceMappingURL=main.392a781b3f593e8a0836.css.map */
+/*# sourceMappingURL=main.392a781b3f593e8a0836.css.map*/
